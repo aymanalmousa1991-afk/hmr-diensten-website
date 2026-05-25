@@ -5,11 +5,11 @@ export const WhatsappButton = () => {
       href="https://wa.me/310635698144"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-gradient-to-br from-green-400 to-green-500 rounded-full shadow-xl flex items-center justify-center hover:scale-110 hover:shadow-2xl transition-all duration-300 hover:from-green-500 hover:to-green-600"
-      aria-label="WhatsApp ons"
+      className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-green-400 to-green-500 rounded-full shadow-xl flex items-center justify-center hover:scale-110 hover:shadow-2xl transition-all duration-300 hover:from-green-500 hover:to-green-600 active:scale-95"
+      aria-label="WhatsApp ons - Stel uw vraag"
     >
       <svg
-        className="w-8 h-8 text-white"
+        className="w-7 h-7 md:w-8 md:h-8 text-white"
         fill="currentColor"
         viewBox="0 0 24 24"
       >

@@ -12,6 +12,7 @@ export const Contact = () => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState(""); // anti-spam veld (onzichtbaar)
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -29,7 +30,7 @@ export const Contact = () => {
       const res = await fetch('/api/offerte', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, _honeypot: honeypot }),
       });
       if (!res.ok) throw new Error('Fout bij versturen');
       setSubmitted(true);
@@ -124,6 +125,11 @@ export const Contact = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Anti-spam honeypot (onzichtbaar voor gebruikers) */}
+                <div className="absolute opacity-0 pointer-events-none" aria-hidden="true">
+                  <label htmlFor="_honeypot">Laat dit leeg</label>
+                  <input type="text" id="_honeypot" name="_honeypot" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} tabIndex={-1} autoComplete="off" />
+                </div>
                 <div>
                   <label
                     htmlFor="name"
@@ -198,14 +204,14 @@ export const Contact = () => {
                   >
                     <option value="">Selecteer een dienst</option>
                     <option value="Huizen Schoonmaken">Huizen Schoonmaken</option>
-                    <option value="Flats &amp; Appartementen">Flats &amp; Appartementen</option>
-                    <option value="Scholen &amp; Instellingen">Scholen &amp; Instellingen</option>
+                    <option value="Flats & Appartementen">Flats & Appartementen</option>
+                    <option value="Scholen & Instellingen">Scholen & Instellingen</option>
                     <option value="Vakantieparken">Vakantieparken</option>
-                    <option value="Hotels &amp; B&amp;apos;s">Hotels &amp; B&amp;apos;s</option>
-                    <option value="Binnen- &amp; Buitenschoonmaak">Binnen- &amp; Buitenschoonmaak</option>
+                    <option value="Hotels & B&amp;Bs">Hotels &amp; B&amp;Bs</option>
+                    <option value="Binnen- & Buitenschoonmaak">Binnen- & Buitenschoonmaak</option>
                     <option value="Kantoor Schoonmaak">Kantoor Schoonmaak</option>
                     <option value="Opleveringsschoonmaak">Opleveringsschoonmaak</option>
-                    <option value="Airbnb &amp; Vakantieverhuur">Airbnb &amp; Vakantieverhuur</option>
+                    <option value="Airbnb & Vakantieverhuur">Airbnb & Vakantieverhuur</option>
                     <option value="Overig">Overig</option>
                   </select>
                 </div>

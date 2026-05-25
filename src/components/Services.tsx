@@ -131,7 +131,6 @@ export const Services = () => {
                   width={600}
                   height={400}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  unoptimized={service.image.startsWith('/')}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 {/* Icoon over de afbeelding */}
