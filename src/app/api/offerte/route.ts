@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     }
 
     const MAIL_TO = process.env.OFFERTE_EMAIL_TO || 'hmrdiensten@gmail.com';
-    const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || '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';
+    const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 
     let emailSent = false;
     const html = buildEmailHtml(name, email, phone, service, message);
