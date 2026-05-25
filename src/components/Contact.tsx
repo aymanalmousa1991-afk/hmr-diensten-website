@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Container } from "@/components/Container";
+import { apiUrl } from "@/lib/api";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ export const Contact = () => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await fetch('/api/offerte', {
+      const res = await fetch(apiUrl('/api/offerte'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, _honeypot: honeypot }),

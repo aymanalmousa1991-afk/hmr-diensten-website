@@ -1,6 +1,7 @@
 "use client";
 import { Container } from "@/components/Container";
 import { useState, useEffect, useRef } from "react";
+import { apiUrl } from "@/lib/api";
 
 const defaultReviews = [
   {
@@ -37,7 +38,7 @@ export const Testimonials = () => {
 
   const fetchReviews = async () => {
     try {
-      const res = await fetch('/api/reviews');
+      const res = await fetch(apiUrl('/api/reviews'));
       const data = await res.json();
       if (data.success && data.data) {
         setReviews(data.data);
@@ -53,7 +54,7 @@ export const Testimonials = () => {
     setMessage('');
 
     try {
-      const res = await fetch('/api/reviews', {
+      const res = await fetch(apiUrl('/api/reviews'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -98,6 +99,7 @@ export const Testimonials = () => {
           <button
             onClick={() => scroll('left')}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-11 h-11 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-600 hover:text-brand-primary hover:shadow-xl transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+            aria-label="Vorige reviews"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -106,6 +108,7 @@ export const Testimonials = () => {
           <button
             onClick={() => scroll('right')}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-11 h-11 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-600 hover:text-brand-primary hover:shadow-xl transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+            aria-label="Volgende reviews"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
