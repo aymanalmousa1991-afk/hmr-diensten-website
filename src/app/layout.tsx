@@ -66,8 +66,9 @@ const jsonLd = {
     bestRating: "5",
     ratingCount: "220",
   },
-  sameAs: [
-    "https://www.facebook.com/share/1CXUY8FA25/",
+    sameAs: [
+    "https://www.facebook.com/profile.php?id=61590242620244",
+    "https://www.instagram.com/hmrdiensten/",
     "https://www.tiktok.com/@hmrdiensten",
   ],
   hasOfferCatalog: {
