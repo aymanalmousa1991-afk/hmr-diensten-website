@@ -6,8 +6,21 @@ const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middleware
-app.use(cors({ origin: process.env.CORS_ORIGIN || '*' }));
+// Middleware - CORS voor zowel hmrdiensten.nl als www.hmrdiensten.nl
+const allowedOrigins = [
+  'https://hmrdiensten.nl',
+  'https://www.hmrdiensten.nl',
+  'https://hmr-diensten-website.pages.dev',
+];
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Niet toegestaan door CORS'));
+    }
+  }
+}));
 app.use(express.json());
 
 // Rate limiting (simpel in-memory)
