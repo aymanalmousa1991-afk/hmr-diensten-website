@@ -95,10 +95,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* Google Analytics - Vervang G-XXXXXXXXXX met je eigen GA4 ID */}
+        {/* Google Analytics */}
         <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`}
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
         />
         <script
           dangerouslySetInnerHTML={{
@@ -107,6 +107,21 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-XXXXXXXXXX');
+            `,
+          }}
+        />
+        {/* Google Ads - Conversietag */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18270211960"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-18270211960');
             `,
           }}
         />
