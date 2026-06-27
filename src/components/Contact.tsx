@@ -35,6 +35,15 @@ export const Contact = () => {
       });
       if (!res.ok) throw new Error('Fout bij versturen');
       setSubmitted(true);
+
+      // Google Ads conversie registreren - Leadformulier indienen
+      if (typeof window !== 'undefined' && typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+          send_to: 'AW-18270211960/bYIaCLiXyMYcEPie9YdE',
+          value: 1.0,
+          currency: 'EUR',
+        });
+      }
     } catch (err) {
       alert('Er is iets misgegaan. Probeer het later opnieuw of bel ons op 06-35698144.');
     } finally {
