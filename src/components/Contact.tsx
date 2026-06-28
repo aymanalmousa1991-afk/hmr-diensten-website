@@ -37,8 +37,8 @@ export const Contact = () => {
       setSubmitted(true);
 
       // Google Ads conversie registreren - Leadformulier indienen
-      if (typeof window !== 'undefined' && typeof gtag !== 'undefined') {
-        gtag('event', 'conversion', {
+      if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
+        window.gtag('event', 'conversion', {
           send_to: 'AW-18270211960/bYIaCLiXyMYcEPie9YdE',
           value: 1.0,
           currency: 'EUR',
