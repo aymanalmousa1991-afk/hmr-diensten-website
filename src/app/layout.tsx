@@ -10,12 +10,12 @@ import { WhatsappButton } from "@/components/WhatsappButton";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "HMR DIENSTEN | Professionele Schoonmaakservice door heel Nederland",
+  title: "HMR Diensten | Professionele Schoonmaakservice door heel Nederland",
   description:
-        "HMR DIENSTEN - Professioneel schoonmaakbedrijf uit Eindhoven, actief in heel Nederland. Specialist in woning schoonmaak, kantoor schoonmaak, opleveringsschoonmaak en Airbnb schoonmaak. Vraag gratis offerte aan!",
+        "HMR Diensten - Professioneel schoonmaakbedrijf uit Eindhoven, actief in heel Nederland. Wij maken schoon, u geniet van het resultaat. Specialist in woningschoonmaak, kantoorschoonmaak, opleveringsschoonmaak en verhuizingen. Vraag gratis offerte aan!",
   keywords: [
     "schoonmaakbedrijf eindhoven",
-    "schoonmaakbedrijf nederland", 
+    "schoonmaakbedrijf nederland",
     "professionele schoonmaakdiensten",
     "huizen schoonmaken eindhoven",
     "kantoor schoonmaak",
@@ -23,9 +23,11 @@ export const metadata: Metadata = {
     "airbnb schoonmaak",
     "hmr diensten",
     "schoonmaakservice",
-    "hotels schoonmaak",
-    "flats schoonmaak",
-    "vakantiepark schoonmaak",
+    "kantoorschoonmaak",
+    "bedrijfsschoonmaak",
+    "verhuizing",
+    "verhuisservice",
+    "woningontruiming",
   ],
   robots: {
     index: true,
@@ -35,9 +37,9 @@ export const metadata: Metadata = {
     canonical: "https://hmrdiensten.nl",
   },
   openGraph: {
-    title: "HMR DIENSTEN | Professionele Schoonmaakservice door heel Nederland",
+    title: "HMR Diensten | Professionele Schoonmaakservice door heel Nederland",
     description:
-      "Professioneel schoonmaakbedrijf uit Eindhoven, actief in heel Nederland. Vraag gratis offerte aan!",
+      "Wij maken schoon, u geniet van het resultaat. Professioneel schoonmaakbedrijf uit Eindhoven, actief in heel Nederland. Vraag gratis offerte aan!",
     type: "website",
     locale: "nl_NL",
   },
@@ -45,9 +47,10 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "HMR DIENSTEN",
-  image: "https://hmrdiensten.nl/uploads/logo/logo.png",
+    "@type": "LocalBusiness",
+  name: "HMR Diensten",
+  slogan: "Wij maken schoon, u geniet van het resultaat.",
+  image: "https://hmrdiensten.nl/uploads/logo/logo%20hmr-diensten.png",
   url: "https://hmrdiensten.nl",
   telephone: "06-35698144",
   email: "hmrdiensten@gmail.com",
@@ -59,7 +62,7 @@ const jsonLd = {
   priceRange: "€€",
   openingHours: "Mo-Su 07:00-22:00",
   description:
-    "Professioneel schoonmaakbedrijf uit Eindhoven, actief in heel Nederland. Voor woningen, kantoren, opleveringsschoonmaak en meer.",
+    "Wij maken schoon, u geniet van het resultaat. Professioneel schoonmaakbedrijf uit Eindhoven, actief in heel Nederland. Voor woningen, kantoren, opleveringsschoonmaak, verhuizingen en transport.",
   areaServed: { "@type": "Country", name: "Nederland" },
   aggregateRating: {
     "@type": "AggregateRating",
@@ -72,14 +75,17 @@ const jsonLd = {
     "https://www.instagram.com/hmrdiensten/",
     "https://www.tiktok.com/@hmrdiensten",
   ],
-  hasOfferCatalog: {
+    hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Schoonmaakdiensten",
+    name: "Schoonmaak- en verhuisdiensten",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Huizen Schoonmaken" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Kantoor Schoonmaak" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Schoonmaak woningen" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bedrijfsschoonmaak" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Kantoorschoonmaak" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Opleveringsschoonmaak" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Airbnb Schoonmaak" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ramen wassen" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Verhuisservice" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Woningontruiming" } },
     ],
   },
 };

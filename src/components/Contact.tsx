@@ -213,15 +213,18 @@ export const Contact = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent outline-none transition-all bg-white"
                   >
                     <option value="">Selecteer een dienst</option>
-                    <option value="Huizen Schoonmaken">Huizen Schoonmaken</option>
-                    <option value="Flats & Appartementen">Flats & Appartementen</option>
-                    <option value="Scholen & Instellingen">Scholen & Instellingen</option>
-                    <option value="Vakantieparken">Vakantieparken</option>
-                    <option value="Hotels & B&amp;Bs">Hotels &amp; B&amp;Bs</option>
-                    <option value="Binnen- & Buitenschoonmaak">Binnen- & Buitenschoonmaak</option>
-                    <option value="Kantoor Schoonmaak">Kantoor Schoonmaak</option>
-                    <option value="Opleveringsschoonmaak">Opleveringsschoonmaak</option>
-                    <option value="Airbnb & Vakantieverhuur">Airbnb & Vakantieverhuur</option>
+                    <option value="Schoonmaak woningen">Schoonmaak woningen</option>
+                    <option value="Bedrijfsschoonmaak">Bedrijfsschoonmaak</option>
+                    <option value="Kantoorschoonmaak">Kantoorschoonmaak</option>
+                    <option value="Gebouwen & VvE">Gebouwen &amp; VvE</option>
+                    <option value="Winkels & horeca">Winkels &amp; horeca</option>
+                    <option value="Dieptereiniging">Dieptereiniging</option>
+                    <option value="Ramen wassen">Ramen wassen</option>
+                    <option value="Oplevering & verhuisschoonmaak">Oplevering &amp; verhuisschoonmaak</option>
+                    <option value="Periodieke schoonmaak">Periodieke schoonmaak</option>
+                    <option value="Verhuisservice">Verhuisservice</option>
+                    <option value="Bedrijfsverhuizing">Bedrijfsverhuizing</option>
+                    <option value="Woningontruiming">Woningontruiming</option>
                     <option value="Overig">Overig</option>
                   </select>
                 </div>

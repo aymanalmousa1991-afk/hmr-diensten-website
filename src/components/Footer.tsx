@@ -20,18 +20,21 @@ export function Footer() {
                 className="flex items-center space-x-3 text-2xl font-bold text-white"
               >
                 <Image
-                  src="/uploads/logo/logo.png"
-                  alt="HMR DIENSTEN Logo"
+                  src="/uploads/logo/logo hmr-diensten.png"
+                  alt="HMR Diensten Logo"
                   width={40}
                   height={40}
                   className="w-10 h-10 rounded-lg"
                 />
-                <span>HMR <span className="text-brand-primary">DIENSTEN</span></span>
+                <span>HMR <span className="text-brand-primary">Diensten</span></span>
               </Link>
             </div>
 
             <div className="max-w-md mt-4 text-gray-400">
-              Uw professionele schoonmaakpartner, gevestigd in Eindhoven en actief door heel Nederland. Voor woningen, kantoren en opleveringsschoonmaak.
+              &ldquo;Wij maken schoon, u geniet van het resultaat.&rdquo; Uw
+              professionele schoonmaakpartner, gevestigd in Eindhoven en actief
+              door heel Nederland. Voor woningen, kantoren,
+              opleveringsschoonmaak en verhuizingen.
             </div>
 
             <div className="flex mt-6 space-x-4">

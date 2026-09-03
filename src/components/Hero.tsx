@@ -15,9 +15,9 @@ export const Hero = () => {
           <div className="flex items-center w-full lg:w-1/2">
             <div className="max-w-2xl mb-8">
               <div className="flex items-center gap-3 mb-6">
-                <Image
-                  src="/uploads/logo/logo.png"
-                  alt="HMR DIENSTEN Logo"
+                                                <Image
+                  src="/uploads/logo/logo hmr-diensten.png"
+                  alt="HMR Diensten Logo"
                   width={60}
                   height={60}
                   className="w-15 h-15 rounded-xl shadow-lg"
@@ -35,10 +35,9 @@ export const Hero = () => {
                 </span>{" "}
                 voor heel Nederland
               </h1>
-              <p className="py-6 text-xl leading-relaxed text-gray-600 lg:text-2xl">
-                HMR DIENSTEN uit Eindhoven, actief door heel Nederland. Voor
-                woningen, flats, scholen, hotels en meer. Wij zorgen
-                voor een stralend schone omgeving, waar je ook bent.
+                            <p className="py-6 text-xl leading-relaxed text-gray-600 lg:text-2xl">
+                Wij maken schoon, u geniet van het resultaat. Professionele
+                schoonmaak en verhuisdiensten door heel Nederland.
               </p>
               <div className="flex flex-col items-start space-y-4 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
                 <a href="#offerte" className="btn-primary">
@@ -88,14 +87,14 @@ export const Hero = () => {
             <div className="relative w-full max-w-lg">
               <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/20 to-blue-500/20 rounded-3xl transform rotate-3"></div>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/uploads/fotos/foto (10).png"
-                  alt="HMR DIENSTEN - Professionele schoonmaak in heel Nederland"
-                  width={616}
-                  height={617}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
+                                <Image
+                                  src="/uploads/diensten/hero_hmr_diensten.jpg"
+                                  alt="HMR Diensten - Professionele schoonmaak in heel Nederland"
+                                  width={616}
+                                  height={617}
+                                  className="w-full h-auto object-cover"
+                                  priority
+                                />
                 {/* Overlay met stats */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6 pt-16">
                   <div className="grid grid-cols-3 gap-4 text-white">

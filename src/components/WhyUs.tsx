@@ -71,10 +71,11 @@ export const WhyUs = () => {
       <Container>
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Waarom HMR DIENSTEN?
+            Waarom HMR Diensten?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ontdek waarom zoveel klanten in heel Nederland voor ons kiezen.
+            Wij maken schoon, u geniet van het resultaat. Ontdek waarom zoveel
+            klanten in heel Nederland voor ons kiezen.
           </p>
         </div>
 
@@ -105,8 +106,8 @@ export const WhyUs = () => {
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-accent/10 rounded-2xl"></div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80"
-                alt="Schoonmaakteam in actie"
+                src="/uploads/diensten/ons-professionele-team.jpg"
+                alt="HMR Diensten - Ons professionele team"
                 width={800}
                 height={600}
                 className="w-full h-auto object-cover"

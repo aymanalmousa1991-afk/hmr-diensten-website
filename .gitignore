@@ -12,6 +12,12 @@
 /.next/
 /out/
 
+# typescript build info
+tsconfig.tsbuildinfo
+
+# temp bronafbeeldingen (niet voor productie)
+/public/uploads2/
+
 # production
 /build
 
@@ -32,3 +38,4 @@ yarn-error.log*
 
 # vercel
 .vercel
+

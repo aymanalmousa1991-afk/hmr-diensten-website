@@ -16,10 +16,11 @@ const config: Config = {
       colors: {
         trueGray: colors.neutral,
         brand: {
-          primary: "#00AEEF",
-          accent: "#22C55E",
-          dark: "#0F172A",
+          primary: "#0F172A",
+          accent: "#3B82F6",
+          dark: "#0B1220",
           light: "#F8FAFC",
+          white: "#FFFFFF",
         },
       },
     },

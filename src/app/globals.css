@@ -14,32 +14,32 @@
 @layer components {
   .btn-primary {
     @apply inline-block px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
-    background: linear-gradient(135deg, #00AEEF, #0095cc);
+    background: linear-gradient(135deg, #0F172A, #1e293b);
   }
 
   .btn-primary:hover {
-    background: linear-gradient(135deg, #0095cc, #0077a3);
+    background: linear-gradient(135deg, #1e293b, #3B82F6);
   }
 
   .btn-secondary {
     @apply inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 border-2;
-    border-color: #00AEEF;
-    color: #00AEEF;
+    border-color: #0F172A;
+    color: #0F172A;
     background: transparent;
   }
 
   .btn-secondary:hover {
-    background: #00AEEF;
+    background: #0F172A;
     color: white;
   }
 
   .btn-whatsapp {
     @apply inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
-    background: linear-gradient(135deg, #22C55E, #16a34a);
+    background: linear-gradient(135deg, #25D366, #1DA851);
   }
 
   .btn-whatsapp:hover {
-    background: linear-gradient(135deg, #16a34a, #15803d);
+    background: linear-gradient(135deg, #1DA851, #128C7E);
   }
 
   .card {
@@ -61,12 +61,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00AEEF;
+  background: #3B82F6;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0095cc;
+  background: #0F172A;
 }
 
 /* Animations */
@@ -84,3 +84,4 @@
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
+

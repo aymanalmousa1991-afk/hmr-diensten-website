@@ -6,11 +6,12 @@ import { useState } from "react";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Diensten", href: "#diensten" },
-    { name: "Waarom Wij", href: "#waarom-wij" },
-    { name: "Offerte", href: "#offerte" },
+    { name: "Diensten", href: "/#diensten" },
+    { name: "Waarom Wij", href: "/#waarom-wij" },
+    { name: "Contact", href: "/#offerte" },
   ];
 
   const closeMenu = () => setIsOpen(false);
@@ -22,21 +23,21 @@ export const Navbar = () => {
         <Link href="/" onClick={closeMenu}>
           <span className="flex items-center space-x-3 text-xl font-bold text-gray-900">
             <Image
-              src="/hmr-logo.svg"
-              alt="HMR DIENSTEN Logo"
+              src="/uploads/logo/logo hmr-diensten.png"
+              alt="HMR Diensten Logo"
               width={40}
               height={40}
               className="w-10 h-10"
               priority
             />
-            <span><span className="text-brand-primary">HMR</span> DIENSTEN</span>
+            <span><span className="text-brand-primary">HMR</span> Diensten</span>
           </span>
         </Link>
 
         {/* Desktop CTA */}
         <div className="gap-3 nav__item mr-2 lg:flex ml-auto lg:ml-0 lg:order-2">
           <div className="hidden mr-3 lg:flex nav__item">
-            <Link href="#offerte" className="btn-primary !px-6 !py-2 !text-sm !font-semibold">
+            <Link href="/#offerte" className="btn-primary !px-6 !py-2 !text-sm !font-semibold">
               Gratis Offerte
             </Link>
           </div>
@@ -67,7 +68,7 @@ export const Navbar = () => {
                       {item.name}
                     </Link>
                   ))}
-                  <Link href="#offerte" onClick={closeMenu} className="w-full px-6 py-3 mt-3 text-center text-white bg-brand-primary rounded-xl font-semibold">
+                  <Link href="/#offerte" onClick={closeMenu} className="w-full px-6 py-3 mt-3 text-center text-white bg-brand-primary rounded-xl font-semibold">
                     Gratis Offerte
                   </Link>
                 </>
@@ -92,4 +93,3 @@ export const Navbar = () => {
     </div>
   );
 }
-
