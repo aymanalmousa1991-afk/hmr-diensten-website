@@ -1,4 +1,4 @@
-jeapp = "hmr-diensten-api"
+app = "hmr-diensten-api"
 primary_region = "ams"
 
 [build]
