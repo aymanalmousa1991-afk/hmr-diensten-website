@@ -33,7 +33,7 @@ export function Footer() {
             <div className="max-w-md mt-4 text-gray-400">
               &ldquo;Wij maken schoon, u geniet van het resultaat.&rdquo; Uw
               professionele schoonmaakpartner, gevestigd in Eindhoven en actief
-              door heel Nederland. Voor woningen, kantoren,
+              door heel Noord-Brabant. Voor woningen, kantoren,
               opleveringsschoonmaak en verhuizingen.
             </div>
 
@@ -91,7 +91,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4">Contact</h3>
             <div className="space-y-3 text-gray-400">
-              <p>Eindhoven (actief door heel Nederland)</p>
+              <p>Eindhoven &amp; heel Noord-Brabant</p>
               <p>06-35698144</p>
               <p>hmrdiensten@gmail.com</p>
               <p>KvK: 42052439</p>

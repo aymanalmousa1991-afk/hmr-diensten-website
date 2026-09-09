@@ -30,14 +30,15 @@ export const Hero = () => {
               </div>
               <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 lg:text-5xl xl:text-6xl">
                 Professioneel{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-blue-600">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-blue-600">
                   Schoonmaakbedrijf
                 </span>{" "}
-                voor heel Nederland
+                in Eindhoven &amp; Noord-Brabant
               </h1>
                             <p className="py-6 text-xl leading-relaxed text-gray-600 lg:text-2xl">
                 Wij maken schoon, u geniet van het resultaat. Professionele
-                schoonmaak en verhuisdiensten door heel Nederland.
+                schoonmaak en verhuisdiensten in heel Eindhoven &amp;
+                Noord-Brabant.
               </p>
               <div className="flex flex-col items-start space-y-4 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
                 <a href="#offerte" className="btn-primary">
@@ -89,7 +90,7 @@ export const Hero = () => {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                                 <Image
                                   src="/uploads/diensten/hero_hmr_diensten.jpg"
-                                  alt="HMR Diensten - Professionele schoonmaak in heel Nederland"
+                                  alt="HMR Diensten - Professionele schoonmaak in Eindhoven &amp; Noord-Brabant"
                                   width={616}
                                   height={617}
                                   className="w-full h-auto object-cover"

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Container } from "@/components/Container";
 import { apiUrl } from "@/lib/api";
+import { services } from "@/lib/services";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ export const Contact = () => {
     service: "",
     message: "",
   });
+  const [photoData, setPhotoData] = useState("");
+  const [photoName, setPhotoName] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [honeypot, setHoneypot] = useState(""); // anti-spam veld (onzichtbaar)
@@ -24,6 +27,27 @@ export const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) {
+      setPhotoData("");
+      setPhotoName("");
+      return;
+    }
+    // Max 5 MB
+    if (file.size > 5 * 1024 * 1024) {
+      alert("De foto mag maximaal 5 MB zijn. Kies een kleinere afbeelding.");
+      e.target.value = "";
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      setPhotoData(String(reader.result));
+      setPhotoName(file.name);
+    };
+    reader.readAsDataURL(file);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
@@ -31,7 +55,12 @@ export const Contact = () => {
       const res = await fetch(apiUrl('/api/offerte'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, _honeypot: honeypot }),
+        body: JSON.stringify({
+          ...formData,
+          _honeypot: honeypot,
+          photoData: photoData || undefined,
+          photoName: photoName || undefined,
+        }),
       });
       if (!res.ok) throw new Error('Fout bij versturen');
       setSubmitted(true);
@@ -75,7 +104,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">Servicegebied</h3>
-                  <p className="text-gray-600">Heel Nederland (gevestigd in Eindhoven)</p>
+                  <p className="text-gray-600">Eindhoven &amp; Noord-Brabant</p>
                 </div>
               </div>
 
@@ -213,18 +242,11 @@ export const Contact = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent outline-none transition-all bg-white"
                   >
                     <option value="">Selecteer een dienst</option>
-                    <option value="Schoonmaak woningen">Schoonmaak woningen</option>
-                    <option value="Bedrijfsschoonmaak">Bedrijfsschoonmaak</option>
-                    <option value="Kantoorschoonmaak">Kantoorschoonmaak</option>
-                    <option value="Gebouwen & VvE">Gebouwen &amp; VvE</option>
-                    <option value="Winkels & horeca">Winkels &amp; horeca</option>
-                    <option value="Dieptereiniging">Dieptereiniging</option>
-                    <option value="Ramen wassen">Ramen wassen</option>
-                    <option value="Oplevering & verhuisschoonmaak">Oplevering &amp; verhuisschoonmaak</option>
-                    <option value="Periodieke schoonmaak">Periodieke schoonmaak</option>
-                    <option value="Verhuisservice">Verhuisservice</option>
-                    <option value="Bedrijfsverhuizing">Bedrijfsverhuizing</option>
-                    <option value="Woningontruiming">Woningontruiming</option>
+                    {services.map((s) => (
+                      <option key={s.slug} value={s.title}>
+                        {s.title}
+                      </option>
+                    ))}
                     <option value="Overig">Overig</option>
                   </select>
                 </div>
@@ -246,6 +268,27 @@ export const Contact = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent outline-none transition-all resize-none"
                     placeholder="Vertel ons wat u nodig heeft..."
                   />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="photo"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Foto (optioneel)
+                  </label>
+                  <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    accept="image/*"
+                    onChange={handlePhotoChange}
+                    className="w-full text-sm text-gray-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-brand-primary/10 file:text-brand-primary hover:file:bg-brand-primary/20 cursor-pointer transition-all"
+                  />
+                  <p className="text-xs text-gray-400 mt-1">
+                    Voeg een foto toe van wat er schoongemaakt of opgehaald moet
+                    worden (max. 5 MB). Dit helpt ons bij een snellere offerte.
+                  </p>
                 </div>
 
                 <button type="submit" disabled={submitting} className="btn-primary w-full text-center">

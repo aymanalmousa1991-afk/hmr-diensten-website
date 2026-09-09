@@ -64,8 +64,9 @@ export const ServiceCatalog = () => {
               Onze Schoonmaakdiensten
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Professionele schoonmaak voor woningen en bedrijven door heel
-              Nederland. Bekijk ons aanbod en vraag een gratis offerte aan.
+              Professionele schoonmaak voor woningen en bedrijven in Eindhoven
+              &amp; Noord-Brabant. Bekijk ons aanbod en vraag een gratis offerte
+              aan.
             </p>
           </div>
 
@@ -77,16 +78,17 @@ export const ServiceCatalog = () => {
         </Container>
       </section>
 
-      {/* Verhuizing & transport diensten */}
+      {/* Verhuizing & ontruiming diensten */}
       <section className="py-20 bg-brand-light">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Verhuizing & Transport
+              Verhuizing &amp; Ontruiming
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Complete verhuis- en transportdiensten. Van woningontruiming tot
-              bedrijfsverhuizing, wij regelen het voor u.
+              Complete verhuizing- en ontruimingsdiensten in Eindhoven &amp;
+              Noord-Brabant. Van woningontruiming tot bedrijfsverhuizing, wij
+              regelen het voor u.
             </p>
           </div>
 

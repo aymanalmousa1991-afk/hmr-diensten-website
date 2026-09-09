@@ -53,9 +53,9 @@ const benefits = [
     ),
   },
   {
-    title: "Landelijke Dekking",
+    title: "Regionaal in Noord-Brabant",
     description:
-      "Als schoonmaakbedrijf gevestigd in Eindhoven zijn wij door heel Nederland inzetbaar. Waar u ook bent, wij komen naar u toe.",
+      "Als schoonmaakbedrijf uit Eindhoven zijn wij actief in heel Eindhoven &amp; Noord-Brabant. Held, Helmond en omliggende regio's bedienen wij gemakkelijk.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -75,29 +75,74 @@ export const WhyUs = () => {
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Wij maken schoon, u geniet van het resultaat. Ontdek waarom zoveel
-            klanten in heel Nederland voor ons kiezen.
+            klanten in Eindhoven &amp; Noord-Brabant voor ons kiezen.
           </p>
+        </div>
+
+        {/* Milieuvriendelijk callout */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 bg-emerald-600 text-white rounded-2xl px-6 py-5 mb-12 shadow-lg">
+          <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl">
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </div>
+          <div className="flex-1 text-center sm:text-left">
+            <p className="text-lg font-bold">
+              Wij werken uitsluitend met milieuvriendelijke schoonmaakmiddelen
+            </p>
+            <p className="text-sm text-emerald-100">
+              Gecertificeerde, duurzame producten zonder schadelijke
+              chemicali\u00ebn. Veilig voor mens, dier, uw interieur en het milieu.
+            </p>
+          </div>
+          <div className="text-2xl font-extrabold tracking-wide whitespace-nowrap">
+            100% ECO
+          </div>
         </div>
 
         <div className="grid gap-12 lg:grid-cols-2 items-center">
           {/* Linker kolom: voordelen */}
-          <div className="grid gap-8 md:grid-cols-2">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit.title}
-                className="relative pl-16"
-              >
-                <div className="absolute left-0 top-0 inline-flex items-center justify-center w-10 h-10 bg-brand-primary/10 rounded-lg text-brand-primary">
-                  {benefit.icon}
+          <div className="grid gap-6 md:grid-cols-2">
+            {benefits.map((benefit) => {
+              const isEco = benefit.title === "Milieuvriendelijk";
+              return (
+                <div
+                  key={benefit.title}
+                  className={`flex gap-5 items-start rounded-2xl transition-all ${
+                    isEco
+                      ? "bg-emerald-50 border-2 border-emerald-400 p-5 shadow-lg"
+                      : "p-2"
+                  }`}
+                >
+                  <div
+                    className={`flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-xl ${
+                      isEco
+                        ? "bg-emerald-600 text-white shadow-md"
+                        : "bg-brand-primary/10 text-brand-primary"
+                    }`}
+                  >
+                    {benefit.icon}
+                  </div>
+                  <div>
+                    <h3
+                      className={`text-lg font-semibold mb-2 ${
+                        isEco ? "text-emerald-800" : "text-gray-900"
+                      }`}
+                    >
+                      {benefit.title}
+                      {isEco && (
+                        <span className="ml-2 inline-flex items-center px-2 py-0.5 text-xs font-bold bg-emerald-600 text-white rounded-full align-middle">
+                          100% groen &amp; veilig
+                        </span>
+                      )}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-sm">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Rechter kolom: afbeelding */}

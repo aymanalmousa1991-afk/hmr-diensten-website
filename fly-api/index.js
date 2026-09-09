@@ -112,7 +112,7 @@ app.post('/api/offerte', async (req, res) => {
       return res.status(429).json({ error: 'Te veel aanvragen. Probeer het later opnieuw.' });
     }
 
-    const { name, email, phone, service, message, _honeypot } = req.body;
+    const { name, email, phone, service, message, _honeypot, photoData, photoName } = req.body;
 
     // Honeypot check
     if (_honeypot) {
@@ -141,6 +141,27 @@ app.post('/api/offerte', async (req, res) => {
 
     let emailSent = false;
 
+    // Foto-verwerking (optioneel via datacontract als data-URL)
+    let cleanPhotoContent = '';
+    let cleanPhotoName = 'klantfoto.jpg';
+    const attachData = photoData && typeof photoData === 'string' && photoData.startsWith('data:')
+      ? photoData
+      : null;
+
+    if (attachData) {
+      const m = attachData.match(/^data:([^;]+);base64,(.*)$/);
+      if (m) {
+        cleanPhotoContent = m[2];
+        const ext = (m[1].split('/')[1] || 'jpg').toLowerCase();
+        cleanPhotoName = photoName ? sanitize(photoName) : `klantfoto.${ext}`;
+        if (!/\.(jpg|jpeg|png|webp|gif)$/i.test(cleanPhotoName)) {
+          cleanPhotoName = `klantfoto.${ext}`;
+        }
+      }
+    }
+
+    const hasPhoto = cleanPhotoContent.length > 0;
+
     // HTML e-mail
     const html = `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
@@ -153,6 +174,7 @@ app.post('/api/offerte', async (req, res) => {
             <tr><td style="padding:10px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9">E-mail</td><td style="padding:10px;border:1px solid #ddd"><a href="mailto:${email}">${email}</a></td></tr>
             <tr><td style="padding:10px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9">Telefoon</td><td style="padding:10px;border:1px solid #ddd">${cleanPhone || '-'}</td></tr>
             <tr><td style="padding:10px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9">Dienst</td><td style="padding:10px;border:1px solid #ddd">${cleanService}</td></tr>
+            <tr><td style="padding:10px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9">Foto bijgevoegd</td><td style="padding:10px;border:1px solid #ddd">${hasPhoto ? 'Ja (zie bijlage)' : 'Nee'}</td></tr>
           </table>
           <h3 style="color:#00AEEF;margin-top:24px;margin-bottom:8px">Bericht</h3>
           <p style="background:#f9f9f9;padding:14px;border-radius:6px;line-height:1.6;margin:0">${cleanMessage}</p>
@@ -161,6 +183,14 @@ app.post('/api/offerte', async (req, res) => {
         </div>
       </div>
     `;
+
+    const attachments = hasPhoto
+      ? [{
+          filename: cleanPhotoName,
+          content: cleanPhotoContent,
+          type: 'application/octet-stream',
+        }]
+      : [];
 
     // Verzenden via SendGrid
     if (SENDGRID_API_KEY && SENDGRID_API_KEY.startsWith('SG.')) {
@@ -179,6 +209,7 @@ app.post('/api/offerte', async (req, res) => {
             }],
             from: { email: 'hmrdiensten@gmail.com', name: 'HMR DIENSTEN Offerte' },
             content: [{ type: 'text/html', value: html }],
+            ...(hasPhoto ? { attachments } : {}),
           }),
         });
         if (sendgridRes.ok) emailSent = true;

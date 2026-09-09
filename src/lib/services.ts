@@ -87,22 +87,41 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "winkels-en-horeca",
-    title: "Winkels & horeca",
+    slug: "winkel-schoonmaak",
+    title: "Winkel schoonmaak",
     category: "schoonmaak",
-    short: "Een aantrekkelijke zaak die gastvrij en schoon overkomt.",
-    image: "/uploads/diensten/winkels-en-horeca.jpg",
+    short: "Aantrekkelijke en schone winkel, gastvrij voor uw klanten.",
+    image: "/uploads/diensten/winkels.jpg",
     description:
-      "Eerste indruk is belangrijk. Wij houden uw winkel of horecazaak hygi\u00ebnisch en aantrekkelijk voor uw klanten.",
+      "Een eerste indruk is belangrijk. Wij houden uw winkel schoon, verzorgd en presentabel, precies zoals uw klanten dat verwachten.",
     highlights: [
-      "Schoonmaak buiten openingstijden",
-      "Hyg\u00ef\u00ebne conform horeca- en winkelnormen",
+      "Schoonmaak buiten openingstijden mogelijk",
+      "Winkelglas en etalages brandschoon",
+      "Presentabele en gastvrije uitstraling",
+    ],
+    included: [
+      "Winkelvloer, rekken en schappen",
+      "Etalages en winkelglas",
+      "Sanitaire ruimtes en paskamers",
+    ],
+  },
+  {
+    slug: "horeca-schoonmaak",
+    title: "Horeca schoonmaak",
+    category: "schoonmaak",
+    short: "Hygi\u00ebnische reiniging van uw horecazaak en keuken.",
+    image: "/uploads/diensten/horeca.jpg",
+    description:
+      "Hygi\u00ebne is essentieel in de horeca. Wij reinigen uw restaurant, caf\u00e9 of bar grondig, met oog voor voedselveiligheid en uitstraling.",
+    highlights: [
+      "Schoonmaak buiten openingstijden mogelijk",
+      "Hygi\u00ebne conform horeca- en Arbonormen",
       "Snel en discreet te werk",
     ],
     included: [
-      "Winkelinrichting en etalages",
+      "Zaal en barruimte",
+      "Keuken en opslagruimtes",
       "Sanitaire ruimtes en kleedkamers",
-      "Keuken en horecaruimtes",
     ],
   },
   {
@@ -262,12 +281,12 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "schoonmaak",
     title: "Schoonmaak",
     description:
-      "Professionele schoonmaakdiensten voor woningen en bedrijven.",
+      "Professionele schoonmaakdiensten voor woningen en bedrijven in Eindhoven & Noord-Brabant.",
   },
   {
     slug: "verhuizing",
-    title: "Verhuizing & Transport",
+    title: "Verhuizing & Ontruiming",
     description:
-      "Verhuis- en transportdiensten, van woningontruiming tot bedrijfsverhuizing.",
+      "Verhuis- en ontruimingsdiensten in Eindhoven & Noord-Brabant, van woningontruiming tot bedrijfsverhuizing.",
   },
 ];

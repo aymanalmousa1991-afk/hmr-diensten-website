@@ -51,8 +51,8 @@ const faqdata = [
     answer: "Vaak kunnen wij binnen 24 uur bij u langskomen. Neem gerust contact met ons op voor een spoedafspraak, dan kijken we wat mogelijk is."
   },
   {
-    question: "Zijn jullie ook actief buiten Eindhoven?",
-    answer: "Ja! Wij zijn gevestigd in Eindhoven, maar actief door heel Nederland. Of u nu in Amsterdam, Rotterdam, Utrecht of Maastricht zit, wij komen naar u toe."
+    question: "In welke regio zijn jullie actief?",
+    answer: "Wij zijn gevestigd in Eindhoven en actief door heel Noord-Brabant. Denk bijvoorbeeld aan Helmond, Veldhoven, Best, Tilburg, Den Bosch en de omliggende regio's. Zit u elders in Noord-Brabant? Neem gerust contact op, wij komen graag bij u langs."
   },
   {
     question: "Wat kost een schoonmaakbeurt?",

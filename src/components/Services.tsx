@@ -113,7 +113,7 @@ export const Services = () => {
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Wij bieden een breed scala aan schoonmaakdiensten voor particulieren
-            en bedrijven door heel Nederland.
+            en bedrijven in Eindhoven &amp; Noord-Brabant.
           </p>
         </div>
 
