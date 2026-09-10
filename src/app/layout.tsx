@@ -57,7 +57,7 @@ const jsonLd = {
   image: "https://hmrdiensten.nl/uploads/logo/logo%20hmr-diensten.png",
   url: "https://hmrdiensten.nl",
   telephone: "06-35698144",
-  email: "hmrdiensten@gmail.com",
+  email: "info@hmrdiensten.nl",
     address: {
     "@type": "PostalAddress",
     addressLocality: "Eindhoven",

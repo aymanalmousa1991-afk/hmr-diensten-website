@@ -136,7 +136,7 @@ app.post('/api/offerte', async (req, res) => {
     const cleanService = sanitize(service);
     const cleanPhone = phone ? sanitize(phone) : '';
 
-    const MAIL_TO = process.env.OFFERTE_EMAIL_TO || 'hmrdiensten@gmail.com';
+    const MAIL_TO = process.env.OFFERTE_EMAIL_TO || 'info@hmrdiensten.nl';
     const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 
     let emailSent = false;
@@ -207,7 +207,7 @@ app.post('/api/offerte', async (req, res) => {
               subject: `Nieuwe offerte aanvraag van ${cleanName}`,
               reply_to: { email },
             }],
-            from: { email: 'hmrdiensten@gmail.com', name: 'HMR DIENSTEN Offerte' },
+            from: { email: 'info@hmrdiensten.nl', name: 'HMR DIENSTEN Offerte' },
             content: [{ type: 'text/html', value: html }],
             ...(hasPhoto ? { attachments } : {}),
           }),

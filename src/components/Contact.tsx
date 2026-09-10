@@ -128,7 +128,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">E-mail</h3>
-                  <p className="text-gray-600">hmrdiensten@gmail.com</p>
+                  <p className="text-gray-600">info@hmrdiensten.nl</p>
                 </div>
               </div>
 

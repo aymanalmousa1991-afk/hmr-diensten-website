@@ -93,7 +93,7 @@ export function Footer() {
             <div className="space-y-3 text-gray-400">
               <p>Eindhoven &amp; heel Noord-Brabant</p>
               <p>06-35698144</p>
-              <p>hmrdiensten@gmail.com</p>
+              <p>info@hmrdiensten.nl</p>
               <p>KvK: 42052439</p>
             </div>
           </div>
