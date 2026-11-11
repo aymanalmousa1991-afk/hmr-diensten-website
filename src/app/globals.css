@@ -5,6 +5,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Ankerlinks (#diensten, #offerte) niet onder de vaste navbar laten verdwijnen */
+    scroll-padding-top: 5.5rem;
   }
   body {
     @apply bg-white;
@@ -13,7 +15,7 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-block px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+    @apply inline-block px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/40;
     background: linear-gradient(135deg, #0F172A, #1e293b);
   }
 
@@ -22,7 +24,7 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 border-2;
+    @apply inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 border-2 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/40;
     border-color: #0F172A;
     color: #0F172A;
     background: transparent;
@@ -34,7 +36,7 @@
   }
 
   .btn-whatsapp {
-    @apply inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+    @apply inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-500/40;
     background: linear-gradient(135deg, #25D366, #1DA851);
   }
 
@@ -69,7 +71,8 @@
   background: #0F172A;
 }
 
-/* Animations */
+/* ============ Animaties ============ */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -85,3 +88,63 @@
   animation: fadeInUp 0.6s ease-out;
 }
 
+/* Hero entrance: gestaffelde fade-in bij het laden van de pagina */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-enter {
+    opacity: 0;
+    animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .hero-enter-1 { animation-delay: 0.05s; }
+  .hero-enter-2 { animation-delay: 0.15s; }
+  .hero-enter-3 { animation-delay: 0.25s; }
+  .hero-enter-4 { animation-delay: 0.35s; }
+  .hero-enter-5 { animation-delay: 0.45s; }
+
+  @keyframes heroImageIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  .hero-image-enter {
+    opacity: 0;
+    animation: heroImageIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  }
+}
+
+/* Scroll-reveal: alleen actief wanneer JavaScript beschikbaar is
+   (de `js`-klasse wordt in layout.tsx op <html> gezet). Zonder JS
+   blijft alle inhoud gewoon zichtbaar. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-enter,
+  .hero-image-enter {
+    opacity: 1;
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { Reveal } from "@/components/Reveal";
 import {
   getServicesByCategory,
   services,
@@ -11,7 +12,7 @@ type ServiceItem = (typeof services)[number];
 const CategoryCard = ({ service }: { service: ServiceItem }) => (
   <Link
     href={`/diensten/${service.slug}`}
-    className="group card overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col"
+    className="group card overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col w-full"
   >
     <div className="relative h-40 lg:h-44 overflow-hidden">
       <Image
@@ -59,20 +60,24 @@ export const ServiceCatalog = () => {
       {/* Schoonmaak diensten */}
       <section id="diensten" className="py-20 bg-white">
         <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Onze Schoonmaakdiensten
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Professionele schoonmaak voor woningen en bedrijven in Eindhoven
-              &amp; Noord-Brabant. Bekijk ons aanbod en vraag een gratis offerte
-              aan.
-            </p>
-          </div>
+          <Reveal>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                Onze Schoonmaakdiensten
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Professionele schoonmaak voor woningen en bedrijven in Eindhoven
+                &amp; Noord-Brabant. Bekijk ons aanbod en vraag een gratis
+                offerte aan.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {schoonmaak.map((service) => (
-              <CategoryCard key={service.slug} service={service} />
+            {schoonmaak.map((service, index) => (
+              <Reveal key={service.slug} delay={(index % 3) * 100} className="flex">
+                <CategoryCard service={service} />
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -81,20 +86,24 @@ export const ServiceCatalog = () => {
       {/* Verhuizing & ontruiming diensten */}
       <section className="py-20 bg-brand-light">
         <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Verhuizing &amp; Ontruiming
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Complete verhuizing- en ontruimingsdiensten in Eindhoven &amp;
-              Noord-Brabant. Van woningontruiming tot bedrijfsverhuizing, wij
-              regelen het voor u.
-            </p>
-          </div>
+          <Reveal>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                Verhuizing &amp; Ontruiming
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Complete verhuizing- en ontruimingsdiensten in Eindhoven &amp;
+                Noord-Brabant. Van woningontruiming tot bedrijfsverhuizing, wij
+                regelen het voor u.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {verhuizing.map((service) => (
-              <CategoryCard key={service.slug} service={service} />
+            {verhuizing.map((service, index) => (
+              <Reveal key={service.slug} delay={(index % 3) * 100} className="flex">
+                <CategoryCard service={service} />
+              </Reveal>
             ))}
           </div>
         </Container>

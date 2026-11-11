@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Container } from "@/components/Container";
+import { Reveal } from "@/components/Reveal";
 import { apiUrl } from "@/lib/api";
 import { services } from "@/lib/services";
 
@@ -85,7 +86,7 @@ export const Contact = () => {
       <Container>
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Info */}
-          <div>
+          <Reveal>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Vraag Uw Gratis Offerte Aan
             </h2>
@@ -144,10 +145,10 @@ export const Contact = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Form */}
-          <div className="card p-8">
+          <Reveal delay={120} className="card p-8">
             {submitted ? (
               <div className="text-center py-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 mb-4 bg-brand-accent/10 rounded-full">
@@ -291,12 +292,12 @@ export const Contact = () => {
                   </p>
                 </div>
 
-                <button type="submit" disabled={submitting} className="btn-primary w-full text-center">
+                <button type="submit" disabled={submitting} className="btn-primary w-full text-center disabled:opacity-60 disabled:cursor-not-allowed">
                   {submitting ? 'Bezig met versturen...' : 'Offerte Aanvragen'}
                 </button>
               </form>
             )}
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

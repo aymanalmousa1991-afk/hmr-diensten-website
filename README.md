@@ -1,65 +1,47 @@
-<p align="center">
- <a href="https://web3templates.com/?ref=nextly_github_logo">
- <img src="https://user-images.githubusercontent.com/1884712/132941531-0fdd7acf-47ca-424e-b77f-1fab2e372a37.png" alt="W3T" width="100" height="41"/>
- </a> 
- <br>
- <br>
-</p>
+# HMR Diensten — Website
 
-# Nextly - Landing Page Template with Next.js & Tailwind CSS
+Bedrijfswebsite van **HMR Diensten**, professioneel schoonmaakbedrijf uit Eindhoven, actief door heel Noord-Brabant ([hmrdiensten.nl](https://hmrdiensten.nl)).
 
-Nextly is a free landing page & marketing website template for  startups and indie projects. Its built with Next.js & TailwindCSS.
-And its completely open-source.
- 
-![image](https://user-images.githubusercontent.com/1884712/121497169-03228680-c990-11eb-975a-e77fddc43de0.png)
+> Vaste kwaliteit. Duidelijke afspraken. Zorgeloos schoon.
 
-## How to use
+## Architectuur
 
-Click on the [Use Template](https://github.com/surjithctly/nextly-template/generate) button on this page to clone this respository to your github account. Or you can also clone this respository using terminal or bash. 
+| Onderdeel | Techniek | Hosting |
+|---|---|---|
+| Frontend (deze map) | Next.js 14, statische export (`output: "export"`), Tailwind CSS, TypeScript | Cloudflare Pages |
+| Backend ([fly-api/](fly-api/)) | Express, MongoDB (reviews), Nodemailer (offerte-mails) | Fly.io (regio `ams`) |
 
-### 1\. Clone this Repository
+## Lokaal ontwikkelen
 
 ```bash
-git clone https://github.com/surjithctly/nextly-template.git
-```
-
-### 2\. Navigate to the directory
-
-```
-cd nextly-template
-```
-
-### 3\. Install dependencies
-
-```
-yarn install
-# or
+# Frontend
 npm install
+npm run dev          # http://localhost:3000
+
+# Backend (aparte terminal)
+cd fly-api
+npm install
+npm run dev          # http://localhost:3001
 ```
 
-### 5\. Run Dev Server
+Zet voor lokaal gebruik `NEXT_PUBLIC_API_URL=http://localhost:3001` (zie [src/lib/api.ts](src/lib/api.ts)).
 
+## Build & deploy
+
+```bash
+npm run build        # statische export naar out/
 ```
-yarn dev
-# or
-npm run dev
-```
 
-## Deploy with Vercel
+- **Frontend**: Cloudflare Pages bouwt via `npm run build`, output-map `out/` (zie [cloudflare.json](cloudflare.json)).
+- **Backend**: `cd fly-api && fly deploy` (vereist `MONGODB_URI` en mail-secrets als Fly-secrets).
 
-Deploy this template using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## Structuur
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/surjithctly/nextly-template&project-name=nextly-template&repository-name=nextly-template)
+- [src/app/](src/app/) — App Router: homepage, dienstpagina's (`/diensten/[slug]`), sitemap, robots
+- [src/lib/services.ts](src/lib/services.ts) — alle 13 diensten (schoonmaak & verhuizing), bron voor catalogus én detailpagina's
+- [src/components/](src/components/) — Hero, ServiceCatalog, WhyUs, Testimonials, Contact (offerteformulier met foto-upload), Faq, OfferCta, Reveal (scroll-animaties)
+- [fly-api/index.js](fly-api/index.js) — API: `/api/offerte` (mail + foto), `/api/reviews` (MongoDB), rate limiting, CORS
 
+## Contact
 
-## Author
-
-Surjith S M ( [@surjithctly](https://surjithctly.in/) )
-
----
-
-[![image](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=web3templates&utm_campaign=oss)
-
-
-
-
+- info@hmrdiensten.nl · 06-35698144 · KvK 42052439

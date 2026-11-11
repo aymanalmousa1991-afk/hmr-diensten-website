@@ -10,9 +10,9 @@ import { WhatsappButton } from "@/components/WhatsappButton";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "HMR Diensten | Professionele Schoonmaakservice in Eindhoven & Noord-Brabant",
+  title: "HMR Diensten | Betrouwbaar Schoonmaakbedrijf in Eindhoven & Noord-Brabant",
   description:
-        "HMR Diensten - Professioneel schoonmaakbedrijf uit Eindhoven, actief door heel Noord-Brabant. Wij maken schoon, u geniet van het resultaat. Specialist in woningschoonmaak, kantoorschoonmaak, opleveringsschoonmaak, winkels, horeca en verhuizingen. Vraag gratis offerte aan!",
+        "HMR Diensten - Betrouwbaar schoonmaakbedrijf uit Eindhoven, actief door heel Noord-Brabant. Zorgeloos schoon voor bedrijven en particulieren: woningschoonmaak, kantoorschoonmaak, opleveringsschoonmaak, winkels, horeca en verhuizingen. Vaste kwaliteit en duidelijke afspraken. Vraag gratis offerte aan!",
   keywords: [
     "schoonmaakbedrijf eindhoven",
     "schoonmaakbedrijf noord-brabant",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     canonical: "https://hmrdiensten.nl",
   },
     openGraph: {
-    title: "HMR Diensten | Professionele Schoonmaakservice in Eindhoven & Noord-Brabant",
+    title: "HMR Diensten | Betrouwbaar Schoonmaakbedrijf in Eindhoven & Noord-Brabant",
     description:
-      "Wij maken schoon, u geniet van het resultaat. Professioneel schoonmaakbedrijf uit Eindhoven, actief door heel Noord-Brabant. Vraag gratis offerte aan!",
+      "Zorgeloos schoon voor bedrijven en particulieren. Van kantoor- en winkelreiniging tot verhuisschoonmaak — met vaste kwaliteit en duidelijke afspraken. Vraag gratis offerte aan!",
     type: "website",
     locale: "nl_NL",
   },
@@ -116,21 +116,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* Google Analytics */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
+        {/* Markeer dat JavaScript beschikbaar is: scroll-animaties (Reveal)
+            worden alleen dan actief, zodat inhoud zonder JS zichtbaar blijft */}
+        <script
           dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX');
-            `,
+            __html: `document.documentElement.classList.add('js');`,
           }}
         />
         {/* Google Ads - Conversietag */}

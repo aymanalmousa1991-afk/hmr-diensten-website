@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Container } from "@/components/Container";
+import { Reveal } from "@/components/Reveal";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
 
@@ -8,18 +9,20 @@ export const Faq = () => {
   return (
     <section id="veelgestelde-vragen" className="py-20 bg-white">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Veelgestelde Vragen
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Antwoorden op de meest gestelde vragen over onze schoonmaakdiensten.
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Veelgestelde Vragen
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Antwoorden op de meest gestelde vragen over onze schoonmaakdiensten.
+            </p>
+          </div>
+        </Reveal>
 
         <div className="w-full max-w-3xl mx-auto">
           {faqdata.map((item, index) => (
-            <div key={item.question} className="mb-4">
+            <Reveal key={item.question} delay={index * 60} className="mb-4">
               <Disclosure>
                 {({ open }) => (
                   <>
@@ -37,7 +40,7 @@ export const Faq = () => {
                   </>
                 )}
               </Disclosure>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>
@@ -48,7 +51,7 @@ export const Faq = () => {
 const faqdata = [
   {
     question: "Hoe snel kan HMR DIENSTEN bij mij langskomen?",
-    answer: "Vaak kunnen wij binnen 24 uur bij u langskomen. Neem gerust contact met ons op voor een spoedafspraak, dan kijken we wat mogelijk is."
+    answer: "Wij reageren binnen 24 uur op uw aanvraag. Neem gerust contact met ons op voor een spoedafspraak, dan kijken we samen wat mogelijk is."
   },
   {
     question: "In welke regio zijn jullie actief?",

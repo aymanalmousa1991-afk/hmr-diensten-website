@@ -1,5 +1,6 @@
 "use client";
 import { Container } from "@/components/Container";
+import { Reveal } from "@/components/Reveal";
 import { useState, useEffect, useRef } from "react";
 import { apiUrl } from "@/lib/api";
 
@@ -84,14 +85,16 @@ export const Testimonials = () => {
     <section className="py-20 bg-gradient-to-br from-brand-primary/5 to-blue-50">
       <Container>
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Wat Onze Klanten Zeggen
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            {reviews.length} review{reviews.length !== 1 ? 's' : ''} &mdash; Lees wat anderen over ons zeggen.
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Wat Onze Klanten Zeggen
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {reviews.length} review{reviews.length !== 1 ? 's' : ''} &mdash; Lees wat anderen over ons zeggen.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Carousel */}
         <div className="relative mb-10 group">

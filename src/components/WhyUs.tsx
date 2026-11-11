@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/Container";
+import { Reveal } from "@/components/Reveal";
 
 const benefits = [
   {
@@ -25,7 +26,7 @@ const benefits = [
   {
     title: "Flexibel & Snel",
     description:
-      "Altijd binnen 24 uur beschikbaar voor spoedgevallen. Wij passen ons aan uw schema aan, ook in het weekend.",
+      "Wij reageren binnen 24 uur op uw aanvraag. Wij passen ons aan uw schema aan, ook in het weekend.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -55,7 +56,7 @@ const benefits = [
   {
     title: "Regionaal in Noord-Brabant",
     description:
-      "Als schoonmaakbedrijf uit Eindhoven zijn wij actief in heel Eindhoven &amp; Noord-Brabant. Held, Helmond en omliggende regio's bedienen wij gemakkelijk.",
+      "Als schoonmaakbedrijf uit Eindhoven zijn wij actief in heel Noord-Brabant. Helmond, Veldhoven, Best en omliggende regio's bedienen wij gemakkelijk.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -69,17 +70,21 @@ export const WhyUs = () => {
   return (
     <section id="waarom-wij" className="py-20 bg-white">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Waarom HMR Diensten?
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Wij maken schoon, u geniet van het resultaat. Ontdek waarom zoveel
-            klanten in Eindhoven &amp; Noord-Brabant voor ons kiezen.
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Waarom HMR Diensten?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Vaste kwaliteit. Duidelijke afspraken. Zorgeloos schoon. Ontdek
+              waarom zoveel klanten in Eindhoven &amp; Noord-Brabant voor ons
+              kiezen.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Milieuvriendelijk callout */}
+        <Reveal>
         <div className="flex flex-col sm:flex-row items-center gap-4 bg-emerald-600 text-white rounded-2xl px-6 py-5 mb-12 shadow-lg">
           <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl">
             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,15 +104,17 @@ export const WhyUs = () => {
             100% ECO
           </div>
         </div>
+        </Reveal>
 
         <div className="grid gap-12 lg:grid-cols-2 items-center">
           {/* Linker kolom: voordelen */}
           <div className="grid gap-6 md:grid-cols-2">
-            {benefits.map((benefit) => {
+            {benefits.map((benefit, index) => {
               const isEco = benefit.title === "Milieuvriendelijk";
               return (
-                <div
+                <Reveal
                   key={benefit.title}
+                  delay={index * 75}
                   className={`flex gap-5 items-start rounded-2xl transition-all ${
                     isEco
                       ? "bg-emerald-50 border-2 border-emerald-400 p-5 shadow-lg"
@@ -140,13 +147,13 @@ export const WhyUs = () => {
                       {benefit.description}
                     </p>
                   </div>
-                </div>
+                </Reveal>
               );
             })}
           </div>
 
           {/* Rechter kolom: afbeelding */}
-          <div className="relative">
+          <Reveal className="relative">
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-brand-primary/10 rounded-2xl"></div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-accent/10 rounded-2xl"></div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -162,7 +169,7 @@ export const WhyUs = () => {
                 <p className="text-white/80 text-sm">Ervaren, gecertificeerd en betrouwbaar</p>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>
