@@ -9,47 +9,123 @@
     scroll-padding-top: 5.5rem;
   }
   body {
-    @apply bg-white;
+    @apply bg-white text-gray-700;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+  ::selection {
+    background: rgb(59 130 246 / 0.2);
   }
 }
 
 @layer components {
+  /* ---------- Knoppen ---------- */
   .btn-primary {
-    @apply inline-block px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/40;
-    background: linear-gradient(135deg, #0F172A, #1e293b);
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden px-8 py-4 text-base lg:text-lg font-semibold text-white rounded-2xl transition-all duration-300 shadow-lg hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/40;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #1d4ed8 140%);
   }
 
   .btn-primary:hover {
-    background: linear-gradient(135deg, #1e293b, #3B82F6);
+    background: linear-gradient(135deg, #1e293b 0%, #1d4ed8 70%, #3b82f6 140%);
+  }
+
+  /* Shine sweep bij hover */
+  .btn-primary::before,
+  .btn-whatsapp::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgb(255 255 255 / 0.28) 50%,
+      transparent 60%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .btn-primary:hover::before,
+  .btn-whatsapp:hover::before {
+    transform: translateX(120%);
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 border-2 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/40;
-    border-color: #0F172A;
-    color: #0F172A;
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-base lg:text-lg font-semibold rounded-2xl transition-all duration-300 border-2 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/40;
+    border-color: #0f172a;
+    color: #0f172a;
     background: transparent;
   }
 
   .btn-secondary:hover {
-    background: #0F172A;
+    background: #0f172a;
     color: white;
   }
 
   .btn-whatsapp {
-    @apply inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-500/40;
-    background: linear-gradient(135deg, #25D366, #1DA851);
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden px-8 py-4 text-base lg:text-lg font-semibold text-white rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-500/40;
+    background: linear-gradient(135deg, #25d366, #1da851);
   }
 
   .btn-whatsapp:hover {
-    background: linear-gradient(135deg, #1DA851, #128C7E);
+    background: linear-gradient(135deg, #1da851, #128c7e);
   }
 
+  /* ---------- Kaarten ---------- */
   .card {
-    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply bg-white rounded-3xl shadow-card hover:shadow-card-hover transition-all duration-300;
   }
 
   .card-hover {
     @apply hover:-translate-y-1;
+  }
+
+  /* ---------- Formuliervelden ---------- */
+  .input-field {
+    @apply w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-gray-900 placeholder:text-gray-400 transition-all duration-200 outline-none focus:bg-white focus:border-brand-accent focus:ring-4 focus:ring-blue-500/10;
+  }
+
+  /* ---------- Sectie-elementen ---------- */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-brand-accent;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply inline-block w-8 h-[2px] bg-brand-accent rounded-full;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.12] tracking-tight text-gray-900;
+  }
+
+  /* ---------- Achtergrondpatronen ---------- */
+  .bg-dots {
+    background-image: radial-gradient(
+      rgb(15 23 42 / 0.08) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  .bg-dots-light {
+    background-image: radial-gradient(
+      rgb(255 255 255 / 0.14) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgb(15 23 42 / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(15 23 42 / 0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
   }
 }
 
@@ -63,12 +139,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3B82F6;
+  background: #3b82f6;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0F172A;
+  background: #0f172a;
 }
 
 /* ============ Animaties ============ */
@@ -121,20 +197,36 @@
    blijft alle inhoud gewoon zichtbaar. */
 html.js .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(32px);
   transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
+}
+
+/* Richtingsvarianten */
+html.js .reveal.reveal-left {
+  transform: translateX(-40px);
+}
+
+html.js .reveal.reveal-right {
+  transform: translateX(40px);
+}
+
+html.js .reveal.reveal-zoom {
+  transform: scale(0.94);
 }
 
 html.js .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html.js .reveal {
+  html.js .reveal,
+  html.js .reveal.reveal-left,
+  html.js .reveal.reveal-right,
+  html.js .reveal.reveal-zoom {
     opacity: 1;
     transform: none;
     transition: none;
@@ -142,6 +234,12 @@ html.js .reveal.is-visible {
   .hero-enter,
   .hero-image-enter {
     opacity: 1;
+    animation: none;
+  }
+  .animate-float,
+  .animate-float-delayed,
+  .animate-float-slow,
+  .animate-pulse-ring {
     animation: none;
   }
   html {

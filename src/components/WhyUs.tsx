@@ -68,14 +68,13 @@ const benefits = [
 
 export const WhyUs = () => {
   return (
-    <section id="waarom-wij" className="py-20 bg-white">
+    <section id="waarom-wij" className="relative py-20 lg:py-28 bg-white overflow-hidden">
       <Container>
         <Reveal>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Waarom HMR Diensten?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-14 lg:mb-16">
+            <span className="eyebrow justify-center">Waarom HMR</span>
+            <h2 className="section-title mt-4">Waarom HMR Diensten?</h2>
+            <p className="mt-4 text-lg text-gray-600">
               Vaste kwaliteit. Duidelijke afspraken. Zorgeloos schoon. Ontdek
               waarom zoveel klanten in Eindhoven &amp; Noord-Brabant voor ons
               kiezen.
@@ -85,65 +84,64 @@ export const WhyUs = () => {
 
         {/* Milieuvriendelijk callout */}
         <Reveal>
-        <div className="flex flex-col sm:flex-row items-center gap-4 bg-emerald-600 text-white rounded-2xl px-6 py-5 mb-12 shadow-lg">
-          <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl">
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-            </svg>
+          <div className="relative flex flex-col sm:flex-row items-center gap-5 overflow-hidden bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-3xl px-7 py-6 mb-14 shadow-soft">
+            <div className="absolute inset-0 bg-dots-light opacity-40 pointer-events-none" aria-hidden="true"></div>
+            <div className="relative flex-shrink-0 inline-flex items-center justify-center w-14 h-14 bg-white/15 rounded-2xl ring-1 ring-white/20">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+              </svg>
+            </div>
+            <div className="relative flex-1 text-center sm:text-left">
+              <p className="text-lg font-bold font-display">
+                Wij werken uitsluitend met milieuvriendelijke schoonmaakmiddelen
+              </p>
+              <p className="text-sm text-emerald-100 mt-0.5">
+                Gecertificeerde, duurzame producten zonder schadelijke
+                chemicali&euml;n. Veilig voor mens, dier, uw interieur en het milieu.
+              </p>
+            </div>
+            <div className="relative text-2xl font-extrabold font-display tracking-wide whitespace-nowrap">
+              100% ECO
+            </div>
           </div>
-          <div className="flex-1 text-center sm:text-left">
-            <p className="text-lg font-bold">
-              Wij werken uitsluitend met milieuvriendelijke schoonmaakmiddelen
-            </p>
-            <p className="text-sm text-emerald-100">
-              Gecertificeerde, duurzame producten zonder schadelijke
-              chemicali\u00ebn. Veilig voor mens, dier, uw interieur en het milieu.
-            </p>
-          </div>
-          <div className="text-2xl font-extrabold tracking-wide whitespace-nowrap">
-            100% ECO
-          </div>
-        </div>
         </Reveal>
 
-        <div className="grid gap-12 lg:grid-cols-2 items-center">
+        <div className="grid gap-12 lg:gap-14 lg:grid-cols-2 items-center">
           {/* Linker kolom: voordelen */}
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2">
             {benefits.map((benefit, index) => {
               const isEco = benefit.title === "Milieuvriendelijk";
               return (
-                <Reveal
-                  key={benefit.title}
-                  delay={index * 75}
-                  className={`flex gap-5 items-start rounded-2xl transition-all ${
-                    isEco
-                      ? "bg-emerald-50 border-2 border-emerald-400 p-5 shadow-lg"
-                      : "p-2"
-                  }`}
-                >
+                <Reveal key={benefit.title} delay={(index % 2) * 90}>
                   <div
-                    className={`flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-xl ${
+                    className={`group h-full rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 ${
                       isEco
-                        ? "bg-emerald-600 text-white shadow-md"
-                        : "bg-brand-primary/10 text-brand-primary"
+                        ? "bg-emerald-50 ring-1 ring-emerald-200 hover:shadow-card-hover"
+                        : "bg-white ring-1 ring-slate-100 shadow-card hover:shadow-card-hover"
                     }`}
                   >
-                    {benefit.icon}
-                  </div>
-                  <div>
+                    <div
+                      className={`inline-flex items-center justify-center w-12 h-12 rounded-xl transition-colors duration-300 ${
+                        isEco
+                          ? "bg-emerald-600 text-white shadow-md"
+                          : "bg-brand-accent/10 text-brand-blue group-hover:bg-brand-blue group-hover:text-white"
+                      }`}
+                    >
+                      {benefit.icon}
+                    </div>
                     <h3
-                      className={`text-lg font-semibold mb-2 ${
+                      className={`mt-4 text-base font-bold ${
                         isEco ? "text-emerald-800" : "text-gray-900"
                       }`}
                     >
                       {benefit.title}
                       {isEco && (
-                        <span className="ml-2 inline-flex items-center px-2 py-0.5 text-xs font-bold bg-emerald-600 text-white rounded-full align-middle">
-                          100% groen &amp; veilig
+                        <span className="ml-2 inline-flex items-center px-2 py-0.5 text-[0.65rem] font-bold bg-emerald-600 text-white rounded-full align-middle uppercase tracking-wide">
+                          100% groen
                         </span>
                       )}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed text-sm">
+                    <p className="mt-2 text-gray-600 leading-relaxed text-sm">
                       {benefit.description}
                     </p>
                   </div>
@@ -153,10 +151,16 @@ export const WhyUs = () => {
           </div>
 
           {/* Rechter kolom: afbeelding */}
-          <Reveal className="relative">
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-brand-primary/10 rounded-2xl"></div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-accent/10 rounded-2xl"></div>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+          <Reveal className="relative reveal-right">
+            <div
+              className="absolute -top-6 -right-6 w-40 h-40 bg-brand-accent/10 rounded-3xl"
+              aria-hidden="true"
+            ></div>
+            <div
+              className="absolute -bottom-8 -left-6 w-32 h-32 bg-dots rounded-3xl"
+              aria-hidden="true"
+            ></div>
+            <div className="relative rounded-[2rem] overflow-hidden shadow-soft ring-1 ring-slate-900/5">
               <Image
                 src="/uploads/diensten/ons-professionele-team.jpg"
                 alt="HMR Diensten - Ons professionele team"
@@ -164,9 +168,26 @@ export const WhyUs = () => {
                 height={600}
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                <p className="text-white font-semibold">Ons professionele team</p>
-                <p className="text-white/80 text-sm">Ervaren, gecertificeerd en betrouwbaar</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/75 via-slate-900/20 to-transparent p-7">
+                <p className="text-white font-bold font-display text-lg">
+                  Ons professionele team
+                </p>
+                <p className="text-white/80 text-sm">
+                  Ervaren, gecertificeerd en betrouwbaar
+                </p>
+              </div>
+            </div>
+            {/* Zwevende ervaring-badge */}
+            <div className="absolute -top-5 left-6 animate-float">
+              <div className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-soft ring-1 ring-slate-100">
+                <span className="text-2xl font-extrabold font-display text-brand-blue">
+                  5+
+                </span>
+                <span className="text-xs font-semibold text-gray-600 leading-tight">
+                  Jaar
+                  <br />
+                  ervaring
+                </span>
               </div>
             </div>
           </Reveal>

@@ -8,6 +8,10 @@ export const WhatsappButton = () => {
       className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-green-400 to-green-500 rounded-full shadow-xl flex items-center justify-center hover:scale-110 hover:shadow-2xl transition-all duration-300 hover:from-green-500 hover:to-green-600 active:scale-95"
       aria-label="WhatsApp ons - Stel uw vraag"
     >
+      <span
+        className="absolute inset-0 rounded-full bg-green-400 animate-pulse-ring pointer-events-none"
+        aria-hidden="true"
+      ></span>
       <svg
         className="w-7 h-7 md:w-8 md:h-8 text-white"
         fill="currentColor"

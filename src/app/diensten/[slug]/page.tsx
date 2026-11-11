@@ -45,19 +45,29 @@ export default function DienstDetail({ params }: PageProps) {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-dark via-brand-primary to-brand-primary pt-28 pb-16 lg:pt-36 lg:pb-20">
-        <Container>
+      <section className="relative bg-gradient-to-br from-brand-dark via-brand-primary to-brand-blue pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-dots-light opacity-40 pointer-events-none" aria-hidden="true"></div>
+        <div
+          className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-brand-accent/20 blur-3xl pointer-events-none"
+          aria-hidden="true"
+        ></div>
+        <Container className="relative">
           <div className="max-w-3xl">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm font-medium text-blue-100 hover:text-white mb-5 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-blue-100 hover:text-white mb-6 transition-colors group"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
               Terug naar overzicht
             </Link>
-            <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+            <span className="block mb-4">
+              <span className="inline-flex items-center px-3 py-1 text-xs font-bold uppercase tracking-wider text-white bg-white/10 backdrop-blur rounded-full ring-1 ring-white/20">
+                {service.category === "schoonmaak" ? "Schoonmaak" : "Verhuizing"}
+              </span>
+            </span>
+            <h1 className="text-4xl lg:text-5xl font-extrabold font-display text-white leading-tight tracking-tight">
               {service.title}
             </h1>
             <p className="mt-4 text-xl text-blue-100">{service.short}</p>
@@ -97,7 +107,7 @@ export default function DienstDetail({ params }: PageProps) {
                   {service.included.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-3 bg-brand-light rounded-xl p-4"
+                      className="flex items-start gap-3 bg-slate-50 ring-1 ring-slate-100 rounded-xl p-4 hover:ring-brand-accent/30 transition-all"
                     >
                       <svg
                         className="w-5 h-5 text-brand-accent mt-0.5 flex-shrink-0"
@@ -208,9 +218,10 @@ export default function DienstDetail({ params }: PageProps) {
 
       {/* Related services */}
       {related.length > 0 && (
-        <section className="py-16 lg:py-20 bg-brand-light">
+        <section className="py-16 lg:py-24 bg-slate-50">
           <Container>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+            <span className="eyebrow">Meer van HMR</span>
+            <h2 className="section-title !text-3xl mt-3 mb-10">
               Verwante diensten
             </h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
